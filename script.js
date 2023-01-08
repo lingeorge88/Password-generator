@@ -35,10 +35,10 @@ function determineLength() {
     if(upperCaseCheck === "" || upperCaseCheck === null){
       alert("Please enter Yes or No for response")
       determineUpperCase();
-    } else if(upperCaseCheck === "yes" || upperCaseCheck ==="y"){
+    } else if(upperCaseCheck === "yes" || upperCaseCheck === "y"){
       upperCaseCheck === true;
       return upperCaseCheck;
-    } else if(upperCaseCheck === "no" || upperCaseCheck ==="n"){
+    } else if(upperCaseCheck === "no" || upperCaseCheck === "n"){
       upperCaseCheck === false;
       return upperCaseCheck
     } else{
@@ -51,16 +51,16 @@ function determineLength() {
   function determineNums(){
     numbersCheck = prompt("Do you want to include numbers in your password? \n(Y)es or (N)o")
     numbersCheck = numbersCheck.toLowerCase();
-    if(numbersCheck === "" || numbersCheck === null){
+    if (numbersCheck === "" || numbersCheck === null){
       alert("Please enter Yes or No for response")
       determineNums();
-    }else if(numbersCheck ==="yes" || numbersCheck === "y"){
+    }else if (numbersCheck === "yes" || numbersCheck === "y"){
       numbersCheck === true;
       return numbersCheck;
-    }else if(numbersCheck === "no" || numbersCheck ==="n"){
+    }else if (numbersCheck === "no" || numbersCheck === "n"){
       numbersCheck === false;
       return numbersCheck;
-    }else{
+    }else {
       alert("Please enter Yes or No for resposne")
       determineNums();
     }
@@ -69,16 +69,16 @@ function determineLength() {
   function determineSpecials() {
     specialsCheck = prompt("Do you want to include Special characters in your password? \n(Y)es or (N)o")
     specialsCheck = specialsCheck.toLowerCase();
-    if(specialsCheck === "" || specialsCheck === null){
+    if (specialsCheck === "" || specialsCheck === null){
       alert("Please enter Yes or No for response")
       determineSpecials();
-    }else if(specialsCheck ==="yes" || specialsCheck === "y"){
+    }else if (specialsCheck === "yes" || specialsCheck === "y"){
       specialsCheck === true;
       return specialsCheck;
-    }else if(specialsCheck === "no" || specialsCheck ==="n"){
+    }else if (specialsCheck === "no" || specialsCheck === "n"){
       specialsCheck === false;
       return specialsCheck;
-    }else{
+    }else {
       alert("Please enter Yes or No for resposne")
       determineSpecials();
     }
@@ -122,10 +122,10 @@ function generatePassword(){
 
 // Write password to the #password input
 function writePassword() {
-  var password = "";
-  password = generatePassword();
+  var password1 = "";
+  password1 = generatePassword();
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = password1;
 
 }
 
