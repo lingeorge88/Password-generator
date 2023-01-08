@@ -11,7 +11,7 @@ var numbersCheck;
 var specialsCheck;
 //Determine password length
 function determineLength() {
-  var passwordLength = prompt("How many characters would you like your password to be? (Choose between 8-128 characters ")
+ passwordLength = prompt("How many characters would you like your password to be? (Choose between 8-128 characters ")
 
   if (passwordLength < 8){
     alert("Password must be between 8-128 characters, please choose again");
@@ -40,7 +40,7 @@ function determineLength() {
       return upperCaseCheck;
     } else if(upperCaseCheck === "no" || upperCaseCheck === "n"){
       upperCaseCheck === false;
-      return upperCaseCheck
+      return upperCaseCheck;
     } else{
       alert("Please enter Yes or No for response");
       determineUpperCase();
