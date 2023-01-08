@@ -30,7 +30,7 @@ function determineLength() {
 
   //Checking if user wants to include uppercase letters in their password
   function determineUpperCase(){
-    upperCaseCheck = prompt("Do you want to include uppercase letters in your password? \n (Y)es or (N)o")
+    upperCaseCheck = prompt("Do you want to include uppercase letters in your password? \n(Y)es or (N)o")
     upperCaseCheck = upperCaseCheck.toLowerCase();
     if(upperCaseCheck === "" || upperCaseCheck === null){
       alert("Please enter Yes or No for response")
@@ -49,7 +49,7 @@ function determineLength() {
   }
 //Checking if users want to include numbers in their password
   function determineNums(){
-    numbersCheck = prompt("Do you want to include numbers in your password? \n (Y)es or (N)o")
+    numbersCheck = prompt("Do you want to include numbers in your password? \n(Y)es or (N)o")
     numbersCheck = numbersCheck.toLowerCase();
     if(numbersCheck === "" || numbersCheck === null){
       alert("Please enter Yes or No for response")
@@ -67,7 +67,7 @@ function determineLength() {
   }
   //function used to check if the user wants to include special chatacters in their password
   function determineSpecials() {
-    specialsCheck = prompt("Do you want to include numbers in your password? \n (Y)es or (N)o")
+    specialsCheck = prompt("Do you want to include Special characters in your password? \n(Y)es or (N)o")
     specialsCheck = specialsCheck.toLowerCase();
     if(specialsCheck === "" || specialsCheck === null){
       alert("Please enter Yes or No for response")
@@ -89,28 +89,28 @@ function generatePassword(){
   console.log(passwordLength);
   determineUpperCase();
   console.log(upperCaseCheck);
-  determineNums;
+  determineNums();
   console.log(numbersCheck);
   determineSpecials();
   console.log(specialsCheck);
 
   var characters = lowerCaseChar;
   var password = "";
-  if(upperCaseCheck && numbersCheck && specialsCheck){
+  if (upperCaseCheck && numbersCheck && specialsCheck){
     characters += upperCaseChar + numbersChar + specialChar;
-  }else if(upperCaseCheck && numbersCheck){
+  }else if (upperCaseCheck && numbersCheck){
     characters += upperCaseChar + numbersChar;
-  }else if(upperCaseCheck && specialsCheck){
+  }else if (upperCaseCheck && specialsCheck){
     characters += upperCaseChar + specialChar;
-  }else if(numbersCheck && specialsCheck){
+  }else if (numbersCheck && specialsCheck){
     characters += numbersChar + specialChar;
-  }else if(upperCaseCheck){
+  }else if (upperCaseCheck){
     characters += upperCaseChar;
-  }else if(numbersCheck){
+  }else if (numbersCheck){
     characters += numbersChar;
-  }else if(specialsCheck){
+  }else if (specialsCheck){
     characters += specialChar;
-  }else{
+  }else {
     characters === lowerCaseChar;
   }
   //using Math.floor and Math.random methods to generate passwords with the determined length with charAt method to randomly select characters
