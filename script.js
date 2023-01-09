@@ -35,17 +35,17 @@ function determineLength() {
     if(upperCaseCheck === "" || upperCaseCheck === null){
       alert("Please enter Yes or No for response")
       determineUpperCase();
-    } else if(upperCaseCheck === "yes" || upperCaseCheck === "y"){
-      upperCaseCheck === true;
+    } else if(upperCaseCheck === "yes" || upperCaseCheck ==="y"){
+      upperCaseCheck = true;
       return upperCaseCheck;
-    } else if(upperCaseCheck === "no" || upperCaseCheck === "n"){
-      upperCaseCheck === false;
+    } else if(upperCaseCheck === "no" || upperCaseCheck ==="n"){
+      upperCaseCheck = false;
       return upperCaseCheck;
     } else{
       alert("Please enter Yes or No for response");
       determineUpperCase();
     }
-    return upperCaseCheck;
+  return upperCaseCheck;
   }
 //Checking if users want to include numbers in their password
   function determineNums(){
@@ -54,16 +54,17 @@ function determineLength() {
     if (numbersCheck === "" || numbersCheck === null){
       alert("Please enter Yes or No for response")
       determineNums();
-    }else if (numbersCheck === "yes" || numbersCheck === "y"){
-      numbersCheck === true;
+    }else if (numbersCheck === "yes" || numbersCheck ==="y"){
+      numbersCheck = true;
       return numbersCheck;
-    }else if (numbersCheck === "no" || numbersCheck === "n"){
-      numbersCheck === false;
+    }else if (numbersCheck === "no" || numbersCheck ==="n"){
+      numbersCheck = false;
       return numbersCheck;
     }else {
       alert("Please enter Yes or No for resposne")
       determineNums();
     }
+  return numbersCheck;
   }
   //function used to check if the user wants to include special chatacters in their password
   function determineSpecials() {
@@ -72,16 +73,17 @@ function determineLength() {
     if (specialsCheck === "" || specialsCheck === null){
       alert("Please enter Yes or No for response")
       determineSpecials();
-    }else if (specialsCheck === "yes" || specialsCheck === "y"){
-      specialsCheck === true;
+    }else if (specialsCheck === "yes" || specialsCheck ==="y"){
+      specialsCheck = true;
       return specialsCheck;
-    }else if (specialsCheck === "no" || specialsCheck === "n"){
-      specialsCheck === false;
+    }else if (specialsCheck === "no" || specialsCheck ==="n"){
+      specialsCheck = false;
       return specialsCheck;
     }else {
       alert("Please enter Yes or No for resposne")
       determineSpecials();
     }
+  return specialsCheck;
   }
 // Generate password functions calls previous 4 functions to determine how to write the password
 function generatePassword(){
@@ -98,19 +100,25 @@ function generatePassword(){
   var password = "";
   if (upperCaseCheck && numbersCheck && specialsCheck){
     characters += upperCaseChar + numbersChar + specialChar;
+
   }else if (upperCaseCheck && numbersCheck){
     characters += upperCaseChar + numbersChar;
+
   }else if (upperCaseCheck && specialsCheck){
     characters += upperCaseChar + specialChar;
+
   }else if (numbersCheck && specialsCheck){
     characters += numbersChar + specialChar;
+
   }else if (upperCaseCheck){
     characters += upperCaseChar;
+
   }else if (numbersCheck){
     characters += numbersChar;
+
   }else if (specialsCheck){
     characters += specialChar;
-  }else {
+  }else{
     characters === lowerCaseChar;
   }
   //using Math.floor and Math.random methods to generate passwords with the determined length with charAt method to randomly select characters
