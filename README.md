@@ -19,7 +19,7 @@ This application was developed using HTML, CSS, and Javascript as part of a clas
 
 ### Executing program
 
-* Open the web application through the following link: 
+* Open the web application through the following link: https://lingeorge88.github.io/Password-generator/
 * Answer the series of prompts from the pop up window at the top of the page to determine desired password length and character types to include.
 
 
