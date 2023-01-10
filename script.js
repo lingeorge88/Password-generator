@@ -24,7 +24,7 @@ function determineLength() {
     alert("Password must be between 8-128 characters, please choose again")
     determineLength();
   } else{
-      alert("The next four screens will ask you what types of characters you would like to be included in your password.\nAt least one prompt must be answered Yes to generated a password");
+      alert("The next four screens will ask you what types of characters you would like to be included in your password.\nAt least one prompt must be answered Yes to generate a password");
   }
   return passwordLength;
   }
