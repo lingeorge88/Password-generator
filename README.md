@@ -44,4 +44,4 @@ Github: https://github.com/lingeorge88
 N/A
 
 ## Acknowledgments
-Started HTML and CSS files through :(https://www.edx.org/boot-camps)
+Starter HTML and CSS files through :(https://www.edx.org/boot-camps)
