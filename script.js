@@ -6,6 +6,7 @@ var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbersChar = "1234567890";
 var specialChar = "~!@#$%^&*<>?[]{}";
 var passwordLength;
+var lowerCaseCheck;
 var upperCaseCheck;
 var numbersCheck;
 var specialsCheck;
@@ -23,11 +24,29 @@ function determineLength() {
     alert("Password must be between 8-128 characters, please choose again")
     determineLength();
   } else{
-      alert("The next three screens will ask you what types of characters you would like to be included in your password.\nIf you choose 'No' for all, your password will only contain lowercase letters.");
+      alert("The next four screens will ask you what types of characters you would like to be included in your password.\nAt least one prompt must be answered Yes to generated a password");
   }
   return passwordLength;
   }
-
+//Checking if user wants to include lowercase letters in their passworc
+function determineLowerCase(){
+  lowerCaseCheck = prompt("Do you want to include lowercase letters in your password? \n(Y)es or (N)o")
+  lowerCaseCheck = lowerCaseCheck.toLowerCase();
+  if(lowerCaseCheck === "" || lowerCaseCheck === null){
+    alert("Please enter Yes or No for response")
+    determineLowerCase();
+  } else if(lowerCaseCheck === "yes" || lowerCaseCheck ==="y"){
+    lowerCaseCheck = true;
+    return lowerCaseCheck;
+  } else if(lowerCaseCheck === "no" || lowerCaseCheck ==="n"){
+    lowerCaseCheck = false;
+    return lowerCaseCheck;
+  } else{
+    alert("Please enter Yes or No for response");
+    determineLowerCase();
+  }
+return lowerCaseCheck;
+}
   //Checking if user wants to include uppercase letters in their password
   function determineUpperCase(){
     upperCaseCheck = prompt("Do you want to include uppercase letters in your password? \n(Y)es or (N)o")
@@ -89,6 +108,8 @@ function determineLength() {
 function generatePassword(){
   determineLength();
   console.log(passwordLength);
+  determineLowerCase();
+  console.log(lowerCaseCheck)
   determineUpperCase();
   console.log(upperCaseCheck);
   determineNums();
@@ -96,20 +117,35 @@ function generatePassword(){
   determineSpecials();
   console.log(specialsCheck);
 
-  var characters = lowerCaseChar;
+  var characters = "";
   var password = "";
-  if (upperCaseCheck && numbersCheck && specialsCheck){
+  if (lowerCaseCheck && upperCaseCheck && numbersCheck && specialsCheck){
+    characters += lowerCaseChar + upperCaseChar + numbersChar + specialChar;
+
+  }else if (upperCaseCheck && numbersCheck && specialsCheck){
     characters += upperCaseChar + numbersChar + specialChar;
-
-  }else if (upperCaseCheck && numbersCheck){
-    characters += upperCaseChar + numbersChar;
-
+   
+  }else if (lowerCaseCheck && upperCaseCheck && numbersCheck){
+    characters += lowerCaseChar + upperCaseChar + numbersChar;
+  
+  }else if (lowerCaseCheck && upperCaseCheck){
+    characters += lowerCaseChar + upperCaseChar;
+  
+  }else if (lowerCaseCheck && numbersCheck){
+    characters += lowerCaseChar + numbersChar;
+  
+  }else if (lowerCaseChar && specialsCheck){
+    characters += lowerCaseChar + specialChar;
+  
   }else if (upperCaseCheck && specialsCheck){
     characters += upperCaseChar + specialChar;
 
   }else if (numbersCheck && specialsCheck){
     characters += numbersChar + specialChar;
 
+  }else if(lowerCaseCheck){
+    characters += lowerCaseChar;
+  
   }else if (upperCaseCheck){
     characters += upperCaseChar;
 
@@ -117,9 +153,9 @@ function generatePassword(){
     characters += numbersChar;
 
   }else if (specialsCheck){
-    characters += specialChar;
-  }else{
-    characters === lowerCaseChar;
+    characters += specialChar; 
+  }else {
+    characters === "";
   }
   //using Math.floor and Math.random methods to generate passwords with the determined length with charAt method to randomly select characters
   for (var i = 0; i < passwordLength; i++){
