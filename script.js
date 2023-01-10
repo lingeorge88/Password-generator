@@ -40,12 +40,12 @@ function determineLowerCase(){
     return lowerCaseCheck;
   } else if(lowerCaseCheck === "no" || lowerCaseCheck ==="n"){
     lowerCaseCheck = false;
-    return lowerCaseCheck;
+    // return lowerCaseCheck;
   } else{
     alert("Please enter Yes or No for response");
     determineLowerCase();
   }
-return lowerCaseCheck;
+// return lowerCaseCheck;
 }
   //Checking if user wants to include uppercase letters in their password
   function determineUpperCase(){
@@ -59,12 +59,12 @@ return lowerCaseCheck;
       return upperCaseCheck;
     } else if(upperCaseCheck === "no" || upperCaseCheck ==="n"){
       upperCaseCheck = false;
-      return upperCaseCheck;
+      // return upperCaseCheck;
     } else{
       alert("Please enter Yes or No for response");
       determineUpperCase();
     }
-  return upperCaseCheck;
+  // return upperCaseCheck;
   }
 //Checking if users want to include numbers in their password
   function determineNums(){
@@ -78,12 +78,12 @@ return lowerCaseCheck;
       return numbersCheck;
     }else if (numbersCheck === "no" || numbersCheck ==="n"){
       numbersCheck = false;
-      return numbersCheck;
+      // return numbersCheck;
     }else {
       alert("Please enter Yes or No for resposne")
       determineNums();
     }
-  return numbersCheck;
+  // return numbersCheck;
   }
   //function used to check if the user wants to include special chatacters in their password
   function determineSpecials() {
@@ -97,12 +97,12 @@ return lowerCaseCheck;
       return specialsCheck;
     }else if (specialsCheck === "no" || specialsCheck ==="n"){
       specialsCheck = false;
-      return specialsCheck;
+      // return specialsCheck;
     }else {
       alert("Please enter Yes or No for resposne")
       determineSpecials();
     }
-  return specialsCheck;
+  // return specialsCheck;
   }
 // Generate password functions calls previous 4 functions to determine how to write the password
 function generatePassword(){
@@ -119,7 +119,7 @@ function generatePassword(){
 
   var characters = "";
   var password = "";
-  if (lowerCaseCheck && upperCaseCheck && numbersCheck && specialsCheck){
+  if (lowerCaseCheck == true && upperCaseCheck == true && numbersCheck == true && specialsCheck == true ){
     characters += lowerCaseChar + upperCaseChar + numbersChar + specialChar;
 
   }else if (upperCaseCheck && numbersCheck && specialsCheck){
@@ -152,11 +152,13 @@ function generatePassword(){
   }else if (numbersCheck){
     characters += numbersChar;
 
-  }else if (specialsCheck){
+  }else if (specialsCheck == true ){
+    // characters = "";
     characters += specialChar; 
   }else {
     characters === "";
   }
+  console.log(characters);
   //using Math.floor and Math.random methods to generate passwords with the determined length with charAt method to randomly select characters
   for (var i = 0; i < passwordLength; i++){
     password += characters.charAt(Math.floor(Math.random() * characters.length));
