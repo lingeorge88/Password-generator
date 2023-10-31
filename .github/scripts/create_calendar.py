@@ -5,12 +5,13 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 import datetime
 import pytz
+import json
 
-# If modifying these SCOPES, delete the file token.json.
+
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 def get_issue_details():
-    # Dummy function to simulate fetching issue details
+    #
     return {
         'title': 'Fix bug in application',
         'due_date': '2023-12-01T10:00:00+00:00',
@@ -26,15 +27,10 @@ def create_event(summary, start_time, end_time, attendees):
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_info({
-                "installed": {
-                    "client_id": os.environ['GOOGLE_CLIENT_ID'],
-                    "client_secret": os.environ['GOOGLE_CLIENT_SECRET'],
-                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                    "token_uri": "https://oauth2.googleapis.com/token",
-                    "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob", "http://localhost"]
-                }
-            }, SCOPES)
+            with open('./credentials.json', 'r') as f:
+    client_config = json.load(f)
+
+    flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
             creds = flow.run_console()
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
