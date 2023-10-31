@@ -1,0 +1,24 @@
+name: MS Graph Event
+
+on:
+    issues:
+      types: [assigned]
+
+jobs:
+  create-event:
+    runs-on: ubuntu-latest
+    name: Create Event
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Create event on the specified day and time
+      uses: anoopt/ms-graph-create-event-msal@v1
+      with:
+        clientId: ${{ secrets.CLIENT_ID }}
+        clientSecret: ${{ secrets.CLIENT_SECRET }}
+        tenantId: ${{ secrets.TENANT_ID }}
+        subject: 'Issue Assigned'
+        body: 'Some files have been pushed on ${{ github.repository }} from ${{ github.actor }}. Please find the details here ${{ github.event.compare }}.'
+        userEmail: 'user@contoso.onmicrosoft.com'
+        start: '2023-12-04T14:30:00'
+        end: '2023-12-04T15:00:00'
