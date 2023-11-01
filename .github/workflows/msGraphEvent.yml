@@ -18,7 +18,7 @@ jobs:
         clientSecret: ${{ secrets.CLIENT_SECRET }}
         tenantId: ${{ secrets.TENANT_ID }}
         subject: 'Issue Assigned'
-        body: 'Some files have been pushed on ${{ github.repository }} from ${{ github.actor }}. Please find the details here ${{ github.event.compare }}.'
-        userEmail: 'user@contoso.onmicrosoft.com'
+        body: 'An issue was assigned on ${{ github.repository }} to ${{ github.actor }}. Please find the details here ${{ github.event.compare }}.'
+        userEmail: 'lingeorge@gmail.com'
         start: '2023-12-04T14:30:00'
         end: '2023-12-04T15:00:00'
