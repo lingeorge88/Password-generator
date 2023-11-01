@@ -28,7 +28,7 @@ def create_event(summary, start_time, end_time, attendees):
             creds.refresh(Request())
         else:
             with open('./credentials.json', 'r') as f:
-    client_config = json.load(f)
+                client_config = json.load(f)
 
     flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
             creds = flow.run_console()
@@ -58,7 +58,7 @@ def create_event(summary, start_time, end_time, attendees):
 
 if __name__ == '__main__':
     try:
-        # Get the issue details from the GitHub API (you'll need to implement this part)
+        
         issue_details = get_issue_details()
 
         # For the purpose of this example, I'm hardcoding these values
