@@ -10,7 +10,9 @@ jobs:
     name: Create Event
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
+      with:
+          node-version: '14'
     - name: Create event on the specified day and time
       uses: anoopt/ms-graph-create-event-msal@v1
       with:
@@ -22,3 +24,4 @@ jobs:
         userEmail: 'lingeorge@gmail.com'
         start: '2023-12-04T14:30:00'
         end: '2023-12-04T15:00:00'
+      
