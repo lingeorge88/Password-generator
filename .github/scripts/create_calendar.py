@@ -28,7 +28,7 @@ def create_event(summary, start_time, end_time, attendees):
             with open('./credentials.json', 'r') as f:
                 client_config = json.load(f)
             flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
-            creds = flow.run_console()
+            creds = flow.run_local_server(port=0)
             with open('token.json', 'w') as token:
                 token.write(creds.to_json())
 
