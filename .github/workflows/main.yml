@@ -22,4 +22,4 @@ jobs:
       - name: PR Action
         uses: ./ # Make sure you specify the correct path to your action here
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
