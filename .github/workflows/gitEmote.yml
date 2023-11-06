@@ -15,9 +15,10 @@ jobs:
     
       - name: Install third-party action dependencies
         run: npm install
-        working-directory: rcmtcristian/gitemote@main
+        
 
       - name: PR emote generator
         uses: rcmtcristian/gitemote@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# comment for test
