@@ -12,7 +12,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
+    
+      - name: Install third-party action dependencies
+        run: npm install
+        working-directory: rcmtcristian/gitemote@main
+
       - name: PR emote generator
-        uses: rcmtcristian/gitemote@Community
+        uses: rcmtcristian/gitemote@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
