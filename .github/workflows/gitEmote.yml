@@ -15,3 +15,4 @@ jobs:
         uses: rcmtcristian/gitemote@main
         with:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #  comment for testing purposes
