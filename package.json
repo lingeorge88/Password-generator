@@ -1,0 +1,16 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "This is a web application that utilizes Javascript to help users generate a password with their specific preferences for length and included characters",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^2.1.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
