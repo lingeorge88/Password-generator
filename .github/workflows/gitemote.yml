@@ -1,5 +1,4 @@
 name: GitEmote
-
 on:
   pull_request:
     types:
@@ -11,9 +10,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
       - name: Run GitEmote
         uses: rcmtcristian/gitemote@main
         with:
-          with:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
