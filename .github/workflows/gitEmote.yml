@@ -11,14 +11,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
-    
-      - name: Install third-party action dependencies
-        run: npm install
         
-
       - name: PR emote generator
-        uses: rcmtcristian/gitemote@main
+        uses: lingeorge88/gitemotePR_GL@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-# comment for test
+# comment for test 333
