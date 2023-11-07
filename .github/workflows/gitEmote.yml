@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '18.x'
       - name: Install Specific NPM Packages
         run: npm install @actions/core @actions/github
         
