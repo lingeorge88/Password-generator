@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: PR emote generator
-        uses: lingeorge88/hello-world-javascript-action@v1.5
+        uses: lingeorge88/hello-world-javascript-action@v1.6
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 # comment for test 333112312321
