@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         
       - name: PR emote generator
-        uses: lingeorge88/gitemotePR_GL@main
+        uses: lingeorge88/hello-world-javascript-action@v1.4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 # comment for test 333112312321
