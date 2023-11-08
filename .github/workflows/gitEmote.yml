@@ -16,4 +16,4 @@ jobs:
         uses: lingeorge88/gitemotePR_GL@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-# testing specific combination 1
+# testing specific combination for style
