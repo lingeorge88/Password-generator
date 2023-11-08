@@ -16,4 +16,4 @@ jobs:
         uses: lingeorge88/gitemotePR_GL@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-# testing sticker for PR with test key word in title
+# testing sticker for PR with feat key word in title.
