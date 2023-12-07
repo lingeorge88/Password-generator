@@ -19,7 +19,8 @@ jobs:
         id: encode-title
         run: |
           # URL Encode the issue title
-          ISSUE_TITLE_ENCODED=$(python -c "import urllib.parse, os; print(urllib.parse.quote(os.environ['ISSUE_TITLE']))")
+          ISSUE_TITLE="Github issue: ${ISSUE_TITLE} Due"
+          ISSUE_TITLE_ENCODED=$(python -c "import urllib.parse, os; print(urllib.parse.quote('${ISSUE_TITLE}'))")
           echo "ISSUE_TITLE_ENCODED=$ISSUE_TITLE_ENCODED" >> $GITHUB_ENV
         env:
           ISSUE_TITLE: ${{ github.event.issue.title }}
@@ -35,5 +36,5 @@ jobs:
 
             [Add to Google Calendar](https://www.google.com/calendar/render?action=TEMPLATE&text=${{ env.ISSUE_TITLE_ENCODED }}&dates=${{ env.DUE_DATE }}T120000Z/${{ env.DUE_DATE }}T130000Z&details=This%20is%20the%20tentative%20due%20date%20for%20the%20above%20issue.)
 
-            Feel free to modify the due date and notification times as needed.
+            Feel free to modify the due date and notification times as needed, cheers!
           emoji: 'hooray'
