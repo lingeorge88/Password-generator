@@ -1,4 +1,4 @@
-name: Create Comment
+name: Create Comment with Calendar Link
 
 on:
   issues:
@@ -8,6 +8,13 @@ jobs:
   create-comment:
     runs-on: ubuntu-latest
     steps:
+      - name: Calculate Due Date
+        id: calc-date
+        run: |
+          # Calculate the date 3 weeks from now
+          DUE_DATE=$(date -d "+3 weeks" +%Y%m%d)
+          echo "DUE_DATE=$DUE_DATE" >> $GITHUB_ENV
+
       - name: Create comment
         uses: actions-cool/issues-helper@v3
         with:
@@ -15,8 +22,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hello ${{ github.event.issue.user.login }}, please add this event to your calendar.
+            Hello ${{ github.event.issue.user.login }}, thank you for taking on this issue, here is a link to add a reminder to your calendar.
 
-            [Add to Google Calendar](https://www.google.com/calendar/render?action=TEMPLATE&text=Meeting&dates=20230101T120000Z/20230101T130000Z&details=Description%20of%20the%20event&location=Office)
+            [Add to Google Calendar](https://www.google.com/calendar/render?action=TEMPLATE&text=${{ github.event.issue.title  }}&dates=${{ env.DUE_DATE }}T120000Z/${{ env.DUE_DATE }}T130000Z&details=Issue%20due%20date.)
 
           emoji: '+1'
