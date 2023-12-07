@@ -35,4 +35,5 @@ jobs:
 
             [Add to Google Calendar](https://www.google.com/calendar/render?action=TEMPLATE&text=${{ env.ISSUE_TITLE_ENCODED }}&dates=${{ env.DUE_DATE }}T120000Z/${{ env.DUE_DATE }}T130000Z&details=This%20is%20the%20tentative%20due%20date%20for%20the%20above%20issue.)
 
-          emoji: '+1'
+            Feel free to modify the due date and notification times as needed.
+          emoji: 'hooray'
