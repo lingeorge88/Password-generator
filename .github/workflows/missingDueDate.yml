@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for missing due dates and write a comment
-        uses: petrandr/duedate_reminders@latest
+        uses: petrandr/duedate_reminders@v1.2
         with:
           gh_token: ${{ secrets.GITHUB_TOKEN }}
           project_number: 4
