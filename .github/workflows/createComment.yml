@@ -15,6 +15,15 @@ jobs:
           DUE_DATE=$(date -d "+3 weeks" +%Y%m%d)
           echo "DUE_DATE=$DUE_DATE" >> $GITHUB_ENV
 
+      - name: URL Encode Issue Title
+        id: encode-title
+        run: |
+          # URL Encode the issue title
+          ISSUE_TITLE_ENCODED=$(python -c "import urllib.parse, os; print(urllib.parse.quote(os.environ['ISSUE_TITLE']))")
+          echo "ISSUE_TITLE_ENCODED=$ISSUE_TITLE_ENCODED" >> $GITHUB_ENV
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+
       - name: Create comment
         uses: actions-cool/issues-helper@v3
         with:
@@ -24,6 +33,6 @@ jobs:
           body: |
             Hello ${{ github.event.issue.user.login }}, thank you for taking on this issue, here is a link to add a reminder to your calendar.
 
-            [Add to Google Calendar](https://www.google.com/calendar/render?action=TEMPLATE&text=${{ github.event.issue.title  }}&dates=${{ env.DUE_DATE }}T120000Z/${{ env.DUE_DATE }}T130000Z&details=Issue%20due%20date.)
+            [Add to Google Calendar](https://www.google.com/calendar/render?action=TEMPLATE&text=${{ env.ISSUE_TITLE_ENCODED }}&dates=${{ env.DUE_DATE }}T120000Z/${{ env.DUE_DATE }}T130000Z&details=Issue%20due%20date.)
 
           emoji: '+1'
