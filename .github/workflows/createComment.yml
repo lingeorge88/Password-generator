@@ -15,7 +15,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hello ${{ github.event.issue.user.login }}.
+            Hello ${{ github.event.issue.user.login }}, please add this event to your calendar.
 
-            Thank you for taking on this issue! Click here to add a reminder in your calendar!
-          emoji: '+1,heart,rocket'
+            [Add to Google Calendar](https://www.google.com/calendar/render?action=TEMPLATE&text=Meeting&dates=20230101T120000Z/20230101T130000Z&details=Description%20of%20the%20event&location=Office)
+
+          emoji: '+1'
