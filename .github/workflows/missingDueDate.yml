@@ -3,6 +3,7 @@ name: 'Check for missing Due Dates'
 on:
   schedule:
     - cron: '0 1 * * *'
+  workflow_dispatch:
 
 jobs:
   reminder:
