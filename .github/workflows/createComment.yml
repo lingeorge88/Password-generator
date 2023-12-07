@@ -17,5 +17,5 @@ jobs:
           body: |
             Hello ${{ github.event.issue.user.login }}.
 
-            你好 ${{ github.event.issue.user.login }}。巴拉巴拉。
-          emoji: '+1'
+            Thank you for taking on this issue! Click here to add a reminder in your calendar!
+          emoji: '+1,heart,rocket'
